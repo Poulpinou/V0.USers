@@ -10,6 +10,39 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+ 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.jumbotron > h1{
+  margin-left: auto;
+  width: auto;
+}
+
+.header {
+  background-color: black;
+  color: grey;
+  height: 40px;
+}
+
+.navbar {
+  background-color: black;
+  height: 40px;
+}
+
+.navbar > div > h4 > a {
+  padding: 20px;
+}
+
+.sidebar {
+  background-color: ghostwhite;
+  border: 2px solid grey;
+  border-radius: 10px;
+}
+
+footer {
+  background-color: black;
+  color: grey;
+  height: 20px;
+}

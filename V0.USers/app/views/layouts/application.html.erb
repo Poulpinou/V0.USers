@@ -9,6 +9,52 @@
   </head>
 
   <body>
+    <header class="header">
+      <div class="row">
+
+        <div class="col-sm-1">
+          <!-- Logo -->
+        </div> 
+
+        <div class="col-sm-3">
+          <h4>0 users logged</h4>
+        </div>  
+
+        <div class="col-sm-7"> </div>
+
+        <div class="col-sm-1">
+          <%= link_to "Login"%>
+        </div> 
+
+      </div>
+    </header>
+
+    <div class="jumbotron">
+      <h1>V0.USers</h1>
+      <p>- Mettre l'illustration du jeu en cours -</p>
+    </div>
+
+    <div class= "navbar">
+      <div class="container">
+        <h4>
+          <%= link_to 'Home', root_path %>
+
+        <!-- Affichage Navigation temporaire -->   
+          <a> Idea Box </a>
+          <a> Download </a>
+          <a> ADN </a>
+          <a> Contact </a>
+        </h4>
+      </div>
+    </div>
+
+    <p id="error"><%= flash[:error] %></p>
+    <p id="notice"><%= flash[:notice] %></p>
+    
     <%= yield %>
+
+    <footer>
+      Copyrights Donovan Persent 2017
+    </footer>
   </body>
 </html>

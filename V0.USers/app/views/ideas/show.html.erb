@@ -1,5 +1,5 @@
 <div class= "container">
-  <h1><%= @idea.title %><small>- By <%= @idea.user.pseudo %></h1>
+  <h1><%= @idea.title %><small>- By <%= link_to @idea.user.pseudo, profile_path(@idea.user.id) %></h1>
   <br>
   <p><%= @idea.description %><p>
   <p><%= @idea.content %><p>

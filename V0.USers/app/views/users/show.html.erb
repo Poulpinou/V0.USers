@@ -1,4 +1,12 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <h1><%= @user.pseudo %></h1>
+  <br>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <div>
+    <%= link_to "Post Idea", users_new_idea_path(@user.id)%>
+  </div>
+
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to 'Back', users_path %>
+<div>
+

@@ -15,6 +15,9 @@ class IdeasController < ApplicationController
   # GET /ideas/new
   def new
     @idea = Idea.new
+
+    cookies[:creator_id] = params[:id]#faire ce sytème par rapport au compte loggé quand on y sera
+
   end
 
   # GET /ideas/1/edit
@@ -25,6 +28,7 @@ class IdeasController < ApplicationController
   # POST /ideas.json
   def create
     @idea = Idea.new(idea_params)
+    @idea.user_id = cookies[:creator_id]
 
     respond_to do |format|
       if @idea.save
@@ -67,8 +71,12 @@ class IdeasController < ApplicationController
       @idea = Idea.find(params[:id])
     end
 
+    def set_user
+      @user = User.find(params[:id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params
-      params.fetch(:idea, {})
+      params.fetch(:idea).permit(:title, :description, :content)
     end
 end

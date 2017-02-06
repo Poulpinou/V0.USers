@@ -9,3 +9,7 @@
 User.create!([
   {pseudo: "Dodo", password: "dodorider", picture: "http://1.bp.blogspot.com/-EbalO4vytNo/T0E_eJnWfsI/AAAAAAAABB0/ukRH3LUD2kY/s1600/dodo+after+michael+kutsche+19+feb+2012.JPG", role: "Admin"}
 ])
+
+Idea.create!([
+  {title: "First Idea", description: "test", content: "blablablablablabla", user_id: 1}
+])

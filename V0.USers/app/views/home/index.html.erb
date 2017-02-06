@@ -16,7 +16,7 @@
         <div class="user-bloc-mini">
           <h3>
             <img src=<%= user.picture %> >
-            <%= link_to user.pseudo, profile_path(user) %>
+            <%= link_to user.pseudo, profile_path(user.id) %>
              - <%= user.role %>
           </h3>
         </div>
@@ -27,6 +27,13 @@
       <!-- Last Comments -->
       <h2>Last Posts</h2>
       <hr>
+      <% @ideas.each do |idea| %>
+        <div class="user-bloc-mini">
+          <h3><%= link_to idea.title, idea_path(idea.id) %></h3>
+          <p><%= idea.description %></p>     
+        </div>
+      <% end %>
+
     </div>
   </div>
 

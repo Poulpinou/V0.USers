@@ -1,0 +1,9 @@
+<div class= "container">
+  <h1><%= @idea.title %><small>- By <%= @idea.user.pseudo %></h1>
+  <br>
+  <p><%= @idea.description %><p>
+  <p><%= @idea.content %><p>
+</div>
+
+<%= link_to 'Edit', edit_idea_path(@idea) %> |
+<%= link_to 'Back', ideas_path %>

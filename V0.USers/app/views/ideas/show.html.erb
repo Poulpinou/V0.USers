@@ -1,8 +1,9 @@
 <div class= "container">
   <h1><%= @idea.title %><small>- By <%= link_to @idea.user.pseudo, profile_path(@idea.user.id) %></h1>
   <br>
-  <p><%= @idea.description %><p>
-  <p><%= @idea.content %><p>
+  <h4><%= @idea.description %><h4>
+  <br>
+  <h4><span class="margin"><%= @idea.content %></span><h4>
 </div>
 
 <%= link_to 'Edit', edit_idea_path(@idea) %> |

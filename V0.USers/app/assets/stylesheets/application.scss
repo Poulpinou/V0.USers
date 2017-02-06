@@ -15,7 +15,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.jumbotron > h1{
+.jumbotron > h1 {
   margin-left: auto;
   width: auto;
 }
@@ -38,7 +38,7 @@
 .sidebar {
   background-color: ghostwhite;
   border: 2px solid grey;
-  border-radius: 10px;
+  border-radius: 50px;
 }
 
 .sidebar > h2 {
@@ -46,11 +46,15 @@
   margin-left: 20px;
 }
 
+.margin {
+  margin: 50px;
+}
+
 .user-bloc-mini {
   margin: 10px;
   background-color:lightblue;
-  border: 2px solid grey;
-  border-radius: 10px;
+  border: 2px solid lightgray;
+  border-radius: 40px;
 }
 
 .user-bloc-mini > h3 > img {

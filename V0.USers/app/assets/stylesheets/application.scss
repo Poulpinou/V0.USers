@@ -41,6 +41,25 @@
   border-radius: 10px;
 }
 
+.sidebar > h2 {
+  color: cornflowerblue;
+  margin-left: 20px;
+}
+
+.user-bloc-mini {
+  background-color: papayawhip;
+  border: 2px solid grey;
+  border-radius: 10px;
+}
+
+.user-bloc-mini > h3 > img {
+  margin: 4px;
+  border: 2px solid black;
+  height: 50px;
+  width: 50px;
+  border-radius: 30px;
+}
+
 footer {
   background-color: black;
   color: grey;

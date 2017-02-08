@@ -17,4 +17,12 @@ class User < ApplicationRecord
     return verify
   end
 
+  def has_no_post?
+    if idea.count == 0
+      return true
+    else
+      return false
+    end
+  end
+
 end

@@ -15,9 +15,6 @@ class User < ApplicationRecord
       verify = false if vote.idea_id == idea.id
     end
     return verify
-
-    # !idea_ids.any? {|idea_id| idea_id == idea.id} &&
-    #   available_votes > 0
   end
 
 end

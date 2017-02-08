@@ -17,7 +17,7 @@
           <h3>
             <img src=<%= user.picture %> >
             <%= link_to user.pseudo, profile_path(user.id) %>
-             - <%= user.role %>
+             <small>- <%= user.role %></small>
           </h3>
         </div>
       <% end %>

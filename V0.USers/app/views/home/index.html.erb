@@ -28,6 +28,9 @@
     <div class= "sidebar">
       <!-- Last Comments -->
       <h2>Last Posts</h2>
+      <div class="button-post">
+        <%= link_to "Post Idea", users_new_idea_path(current_user.id)%>
+      </div>
       <hr>
 
       <%= render @ideas.limit 5 %>

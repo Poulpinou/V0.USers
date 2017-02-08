@@ -1,4 +1,10 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <h1><%= @user.pseudo %></h1>
+  <br>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <div class="button-post">
+    <%= link_to "Post Idea", users_new_idea_path(current_user.id)%>
+  </div>
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
+<div>
+

@@ -15,11 +15,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.jumbotron > h1{
+/* Main illu */
+.jumbotron > h1 {
   margin-left: auto;
   width: auto;
 }
 
+/* Bars */
 .header {
   background-color: black;
   color: grey;
@@ -38,7 +40,7 @@
 .sidebar {
   background-color: ghostwhite;
   border: 2px solid grey;
-  border-radius: 10px;
+  border-radius: 50px;
 }
 
 .sidebar > h2 {
@@ -46,10 +48,17 @@
   margin-left: 20px;
 }
 
+/* text utilities */
+.margin {
+  margin: 50px;
+}
+
+/* blocs */
 .user-bloc-mini {
-  background-color: papayawhip;
-  border: 2px solid grey;
-  border-radius: 10px;
+  margin: 10px;
+  background-color:lightblue;
+  border: 2px solid lightgray;
+  border-radius: 40px;
 }
 
 .user-bloc-mini > h3 > img {
@@ -59,6 +68,50 @@
   width: 50px;
   border-radius: 30px;
 }
+
+.ago {
+  color: lightslategrey;
+  margin-left: 250px;
+}
+
+/* Buttons */
+.post-btn {
+  margin-left: 140px;
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.post-btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
+.post-btn > a {
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  /*padding: 0px 8px 0px 8px;*/
+  text-decoration: none;
+}
+
+/* footer */
 
 footer {
   background-color: black;

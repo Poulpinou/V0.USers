@@ -17,21 +17,27 @@
           <h3>
             <img src=<%= user.picture %> >
             <%= link_to user.pseudo, profile_path(user.id) %>
-             - <%= user.role %>
+             <small>- <%= user.role %></small>
           </h3>
         </div>
       <% end %>
     </div>
 
+    <br>
+
     <div class= "sidebar">
       <!-- Last Comments -->
-      <h2>Last Posts</h2>
+      <h2> Last Posts
+        <%= content_tag :button, type: "button", class: "post-btn" do
+          link_to "Post Idea", users_new_idea_path(current_user.id)
+        end %>
+      </h2>
       <hr>
-      <% @ideas.each do |idea| %>
-        <div class="user-bloc-mini">
-          <h3><%= link_to idea.title, idea_path(idea.id) %></h3>
-          <p><%= idea.description %></p>     
-        </div>
+
+      <%= render @ideas.limit 5 %>
+      
+      <% if Idea.count > 5 %>
+        <p> <%= Idea.count - 5 %> other posts
       <% end %>
 
     </div>

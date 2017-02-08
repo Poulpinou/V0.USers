@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208094341) do
+ActiveRecord::Schema.define(version: 20170208121401) do
 
   create_table "ideas", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
     t.text     "content"
     t.integer  "user_id"
-    t.integer  "votes"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "votes_amount", default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.index ["user_id"], name: "index_ideas_on_user_id"
   end
 
@@ -40,8 +40,16 @@ ActiveRecord::Schema.define(version: 20170208094341) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "available_votes",        default: 3
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "idea_id"
+    t.index ["idea_id"], name: "index_votes_on_idea_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
 end

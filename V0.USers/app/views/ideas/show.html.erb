@@ -4,6 +4,17 @@
   <h4><%= @idea.description %><h4>
   <br>
   <h4><span class="margin"><%= @idea.content %></span><h4>
+  <br>
+  <h4> <%= @idea.votes_amount %> votes </h4>
+  <% if current_user.can_vote? @idea %>
+    <%= link_to "Vote!", vote_path(@idea.id)%>
+  <% else %>
+    <% if current_user.available_votes > 0 %>
+      <p> Voted! <p>
+    <% else %>
+      <p> You can't vote anymore <p>
+    <% end %>
+  <% end %>
 </div>
 
 <%= link_to 'Edit', edit_idea_path(@idea) %> |

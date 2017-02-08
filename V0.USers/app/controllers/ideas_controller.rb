@@ -1,6 +1,32 @@
 class IdeasController < ApplicationController
-  before_action :set_idea, only: [:show, :edit, :update, :destroy]
+  before_action :set_idea, only: [:show, :edit, :update, :destroy, :vote]
 
+
+def vote
+  vote = Vote.new
+  vote.user_id = current_user.id
+  vote.idea_id = @idea.id
+
+  if vote.save
+    current_user.available_votes -= 1
+    @idea.votes_amount +=1
+    current_user.save(validate: false)
+    @idea.save
+    redirect_to session[:previous_request_url]
+  else
+    redirect_to session[:previous_request_url], alert: "Error while saving"
+  end
+end
+
+
+
+
+
+
+
+
+
+# --------------------Idea Scaffold --------------------
   # GET /ideas
   # GET /ideas.json
   def index

@@ -1,5 +1,6 @@
 class Idea < ApplicationRecord
   belongs_to :user
+  has_and_belongs_to_many :votes
 
   def ago
     time = DateTime.now.to_i - self.created_at.to_i

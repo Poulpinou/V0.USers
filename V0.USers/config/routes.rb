@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   #vote
   get 'vote/:id', to: "ideas#vote", as: "vote"
 
+  #Manual update (temporary)
+  get 'update/ranks', to: "application#update_ranks", as: "update_ranks"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

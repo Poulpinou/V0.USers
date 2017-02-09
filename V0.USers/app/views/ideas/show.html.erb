@@ -22,6 +22,15 @@
         <%= link_to 'Edit', edit_idea_path(@idea), class:"post-btn"  %>
       <% end %>
 
+      <div class="rank">
+        <h3> Rank : <%= @idea.rank %> </h3>
+        <!-- Temporary -->
+        <% if current_user.role == "Admin" %>
+          <%= link_to 'Update rank', update_ranks_path, class:"post-btn"  %>
+        <% end %>
+
+      </div>
+
       <div class="vote">
         <h4><%= @idea.votes_amount %> votes </h4>
         <div class="vote-sign">

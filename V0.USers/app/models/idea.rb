@@ -1,5 +1,8 @@
 class Idea < ApplicationRecord
   belongs_to :user
+  has_many :comment
+  has_and_belongs_to_many :votes
+  default_scope { order({votes_amount: :desc}, :title) }
 
   def ago
     time = DateTime.now.to_i - self.created_at.to_i
@@ -10,5 +13,9 @@ class Idea < ApplicationRecord
     return "#{time} hours ago" if time < 24
     time = (time/24).to_i
     return "#{time} days ago"
+  end
+
+  def owner idea
+    User.find idea.user_id
   end
 end

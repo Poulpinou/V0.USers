@@ -1,10 +1,70 @@
 <div class= "container">
-  <h1><%= @idea.title %><small>- By <%= link_to @idea.user.pseudo, profile_path(@idea.user.id) %></h1>
-  <br>
-  <h4><%= @idea.description %><h4>
-  <br>
-  <h4><span class="margin"><%= @idea.content %></span><h4>
+  <div class="row">
+
+    <div class="col-sm-5">
+      <h1><%= @idea.title %><small>- By <%= link_to @idea.user.pseudo, profile_path(@idea.user.id) %></h1>
+      <br>
+      <h4><%= @idea.description %><h4>
+      <br>
+      <h4><span class="margin"><%= @idea.content %></span><h4>
+      <br>
+    </div>
+
+    <div class="col-sm-5">
+        - Mettre les images ici - 
+        <!-- Voir à utiliser CK Editor pour créer les idées -->
+    </div>
+
+
+    <div class="col-sm-2">
+
+      <% if current_user.id == @idea.user_id || current_user.role == "Admin"%>
+        <%= link_to 'Edit', edit_idea_path(@idea), class:"post-btn"  %>
+      <% end %>
+
+      <div class="rank">
+        <h3> Rank : <%= @idea.rank %> </h3>
+        <!-- Temporary -->
+        <% if current_user.role == "Admin" %>
+          <%= link_to 'Update rank', update_ranks_path, class:"post-btn"  %>
+        <% end %>
+
+      </div>
+
+      <div class="vote">
+        <h4><%= @idea.votes_amount %> votes </h4>
+        <div class="vote-sign">
+          <% if current_user.can_vote? @idea %>
+            <%= link_to "Vote!", vote_path(@idea.id)%>
+          <% else %>
+            <% if current_user.available_votes > 0 %>
+              Voted!
+            <% else %>
+              You can't vote anymore
+            <% end %>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <%= link_to 'Back', ideas_path %>
+
+  <hr>
+  <!-- Comments -->
+  <div class="comments">
+    <!-- Display -->
+    <h2><strong> Comments </strong><small>&nbsp; &nbsp; <%= @comments.count %> &nbsp;comments</h2>
+    <%= render 'comments/comment'%>
+
+    <br>
+    <!-- Create -->
+    <div class="comment-form">
+
+       <%= render 'comments/form', comment: Comment.new %>
+
+    </div>
+  </div>
 </div>
 
-<%= link_to 'Edit', edit_idea_path(@idea) %> |
-<%= link_to 'Back', ideas_path %>

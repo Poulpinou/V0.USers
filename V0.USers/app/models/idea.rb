@@ -1,5 +1,6 @@
 class Idea < ApplicationRecord
   belongs_to :user
+  has_many :comment
   has_and_belongs_to_many :votes
   default_scope { order({votes_amount: :desc}, :title) }
 

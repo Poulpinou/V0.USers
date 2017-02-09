@@ -15,6 +15,22 @@
       <p> You can't vote anymore <p>
     <% end %>
   <% end %>
+
+  <hr>
+  <!-- Comments -->
+  <div class="comments">
+    <!-- Display -->
+    <h2><strong> Comments </strong><small>&nbsp; &nbsp; <%= @comments.count %> &nbsp;comments</h2>
+    <%= render 'comments/comment'%>
+
+    <br>
+    <!-- Create -->
+    <div class="comment-form">
+
+       <%= render 'comments/form', comment: Comment.new %>
+
+    </div>
+  </div>
 </div>
 
 <%= link_to 'Edit', edit_idea_path(@idea) %> |

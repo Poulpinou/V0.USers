@@ -74,6 +74,39 @@
   margin-left: 250px;
 }
 
+/* Comments */
+.comments {
+  margin: 10px;
+}
+.comment {
+  margin: 10px;
+  border: 2px solid darkgrey;
+  height: 200px;
+  width: 800px;
+  border-radius: 10px;
+}
+
+.comment > div > div > img {
+  position: absolute;
+  margin: 15px;
+  border: 2px solid black;
+  height: 150px;
+  width: 150px;
+  border-radius: 30px;
+}
+
+.comment-text {
+  margin: 20px;
+  margin-left: 80px;
+  word-wrap: break-word;
+}
+
+.comment-form {
+
+}
+
+
+
 /* Buttons */
 .post-btn {
   margin-left: 140px;

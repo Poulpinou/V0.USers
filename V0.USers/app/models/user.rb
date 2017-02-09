@@ -7,7 +7,9 @@ class User < ApplicationRecord
   validates :password, :presence => true
   validates :role, :presence => true
   has_many :idea
+  has_many :comment
   has_and_belongs_to_many :votes
+
 
   def can_vote? idea
     verify = true

@@ -36,6 +36,7 @@ end
   # GET /ideas/1
   # GET /ideas/1.json
   def show
+    @comments = Comment.where(idea_id: params[:id])
   end
 
   # GET /ideas/new

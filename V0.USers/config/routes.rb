@@ -18,5 +18,8 @@ Rails.application.routes.draw do
   #Manual update (temporary)
   get 'update/ranks', to: "application#update_ranks", as: "update_ranks"
 
+  # Sort drop down
+  get 'ideas/sort/:type', to: "ideas#sort_type", as: "sort_ideas"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

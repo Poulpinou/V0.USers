@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212221503) do
+ActiveRecord::Schema.define(version: 20170212230637) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -66,6 +66,10 @@ ActiveRecord::Schema.define(version: 20170212221503) do
     t.string   "last_sign_in_ip"
     t.integer  "available_votes",        default: 3
     t.integer  "rank",                   default: 0
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

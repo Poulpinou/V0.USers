@@ -1,7 +1,20 @@
 <div class="user-bloc-mini">
-  <h3><%= link_to idea.title, idea_path(idea.id) %></h3>
-  <p><span class= "margin"><%= idea.description.html_safe %></span></p>  
-  <div class="ago">
-    - Created <%= idea.ago %>
-  </div>   
+
+  <div class="row">
+
+    <div class="col-sm-2">
+      <h1 class="rank-num"><%= idea.rank %></h1>
+    </div>
+    
+    <div class="col-sm-8">
+      <h3><%= link_to idea.title, idea_path(idea.id) %></h3>
+      <p><span class= "margin"><%= idea.description.html_safe %></span></p>  
+      <div class="ago">
+        - Created <%= idea.ago %>
+      </div>   
+    </div>
+
+    <div class="col-sm-2"></div>
+
+  </div>
 </div>

@@ -18,6 +18,11 @@ def vote
   end
 end
 
+def sort_type
+  cookies[:sort_ideas] = params[:type]
+  redirect_to session[:previous_request_url]
+end
+
 
 
 

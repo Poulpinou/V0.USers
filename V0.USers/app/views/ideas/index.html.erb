@@ -1,25 +1,34 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <h1>Ideas <small><%= link_to 'New Idea', new_idea_path %></small></h1>
+  
+  <br>
+  <div class="sort-bar">
+    <div class="row">
 
-<h1>Ideas</h1>
+      <div class="col-sm-8">
+        <h4> Ideas | Sorted by <%= cookies[:sort_ideas] %> </h4>
+      </div>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <div class="col-sm-4">
+        <h4>
+          <%= link_to "Rank", sort_ideas_path("Rank") %> |
+          <%= link_to "Last", sort_ideas_path("Last") %> |
+          <%= link_to "Random", sort_ideas_path("Random") %>
+        </h4>
+      </div>
 
-  <tbody>
-    <% @ideas.each do |idea| %>
-      <tr>
-        <td><%= link_to 'Show', idea %></td>
-        <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
-        <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    </div>
+  </div>
+  <br>
 
-<br>
+  <% if cookies[:sort_ideas] == "Rank" %>
+    <% @ideas = @ideas.order({votes_amount: :desc}, :title) %>
+  <% elsif cookies[:sort_ideas] == "Last" %>
+    <% @ideas = @ideas.order({created_at: :desc}, :title) %>
+  <% elsif cookies[:sort_ideas] == "Random" %>
+    <% @ideas = @ideas.shuffle %>
+  <% end %>
 
-<%= link_to 'New Idea', new_idea_path %>
+  <%= render @ideas %>
+  
+</div>

@@ -1,18 +1,13 @@
 <div class= "container">
   <div class="row">
 
-    <div class="col-sm-5">
+    <div class="col-sm-10">
       <h1><%= @idea.title %><small>- By <%= link_to @idea.user.pseudo, profile_path(@idea.user.id) %></h1>
       <br>
-      <h4><%= @idea.description %><h4>
+      <h4><%= @idea.description.html_safe %><h4>
       <br>
-      <h4><span class="margin"><%= @idea.content %></span><h4>
+      <h4><span class="margin"><%= @idea.content.html_safe %></span><h4>
       <br>
-    </div>
-
-    <div class="col-sm-5">
-        - Mettre les images ici - 
-        <!-- Voir à utiliser CK Editor pour créer les idées -->
     </div>
 
 

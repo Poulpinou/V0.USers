@@ -37,6 +37,10 @@ gem 'jbuilder', '~> 2.5'
 # Use Devise for login system
 gem 'devise'
 
+# Add CKEditor for ideas
+gem 'paperclip'
+gem 'ckeditor', '4.1.3'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

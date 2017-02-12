@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'ckeditor/ckeditor.js' %>
   </head>
 
   <body>
@@ -68,5 +69,15 @@
     <footer>
       Copyrights Donovan Persent 2017
     </footer>
+
+<!-- SCRIPTS -->
+    <script type="text/javascript">$(document).ready(function() {
+          if ($('textarea').length > 0) {
+              var data = $('textarea');
+              $.each(data, function(i) {
+                  CKEDITOR.replace(data[i].id);
+              });
+          }
+      });</script>
   </body>
 </html>

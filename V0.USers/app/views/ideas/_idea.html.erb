@@ -1,4 +1,5 @@
 <div class="user-bloc-mini">
+
   <div class="row">
 
     <div class="col-sm-2">
@@ -7,7 +8,7 @@
     
     <div class="col-sm-8">
       <h3><%= link_to idea.title, idea_path(idea.id) %></h3>
-      <p><span class= "margin"><%= idea.description %></span></p>  
+      <p><span class= "margin"><%= idea.description.html_safe %></span></p>  
       <div class="ago">
         - Created <%= idea.ago %>
       </div>   

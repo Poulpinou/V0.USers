@@ -48,9 +48,24 @@
   margin-left: 20px;
 }
 
+.sort-bar {
+  background-color: ghostwhite;
+  border-radius: 15px;
+  margin: 10px;
+  padding-left: 20px;
+  font-size: 25px;
+}
+
+
 /* text utilities */
 .margin {
   margin: 50px;
+}
+
+.rank-num {
+  margin: 40px;
+  color: cornflowerblue;
+  border-right: 2px solid cornflowerblue;
 }
 
 /* blocs */

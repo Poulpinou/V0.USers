@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
   before_action :set_last_url
+  before_filter :configure_permitted_parameters, if: :devise_controller?
 
   def set_last_url
     session[:previous_request_url] = session[:current_request_url]
@@ -18,6 +19,12 @@ class ApplicationController < ActionController::Base
       i += 1
     end
     redirect_to session[:previous_request_url]
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:users, keys: [:picture])
   end
 
 end

@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>"}, default_url: "http://istc-pc-test-media.cs.washington.edu/images/default-profile-pic.png"
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
 
+  
 
   def can_vote? idea
     verify = true
@@ -27,6 +28,16 @@ class User < ApplicationRecord
     else
       return false
     end
+  end
+
+
+  def self.role_kind
+    role_kind = ["Admin", "User", "Redactor", "Team"]
+  end
+
+  def change_role new_role
+    self.role = new_role
+    self.save(validate: false)
   end
 
 end

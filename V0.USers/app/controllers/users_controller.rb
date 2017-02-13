@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :modif_role]
+
+  def modif_role
+    @user.change_role(params[:role])
+    redirect_to @user
+  end
 
   # GET /users
   # GET /users.json

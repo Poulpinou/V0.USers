@@ -31,6 +31,11 @@ class User < ApplicationRecord
     end
   end
 
+  def notif_count user
+    @notifs = Notif.where(seen: false, user_id: user)
+    @notifs.count
+  end
+
 
   def self.role_kind
     role_kind = ["Admin", "User", "Redactor", "Team"]

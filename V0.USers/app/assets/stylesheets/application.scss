@@ -71,6 +71,30 @@
   margin: 5px;
 }
 
+/*notifs */
+.notifs {
+  margin: 4px;
+  padding: 4px;
+  background-color: lightgrey;
+  color: black;
+  border-radius: 5px;
+}
+
+.notif-seen {
+  background-color: lightgrey;
+}
+.notif-new {
+  background-color: lightblue;
+}
+
+.notif-display {
+  margin: 5px;
+}
+
+.notif-display > ul {
+  width: 270px;
+}
+
 
 /* text utilities */
 .margin {

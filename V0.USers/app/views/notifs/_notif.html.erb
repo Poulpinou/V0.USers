@@ -1,0 +1,12 @@
+<li>
+    <div class="notifs">
+        <div <% if notif.seen == false %>
+            class="notif-new"
+            <% else %>
+            class="notif-seen"
+            <% end %> >          
+            <p> <%= link_to notif.content, notif.redirection %> </p>
+            <small> <%= notif.ago %> </small>
+        </div>
+    </div>
+</li>

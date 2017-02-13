@@ -9,7 +9,7 @@ class Notif < ApplicationRecord
         notif.user_id = userID
         notif.content = notif.create_content(subject, objects)
         notif.redirection = url
-        notif.seen = :false
+        notif.seen = false
         notif.save!
     end
 

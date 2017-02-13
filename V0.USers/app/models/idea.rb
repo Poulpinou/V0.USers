@@ -5,7 +5,6 @@ class Idea < ApplicationRecord
   validates :title, :presence => true
   validates :description, :presence => true
   validates :content, :presence => true
-  has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "http://istc-pc-test-media.cs.washington.edu/images/default-profile-pic.png"
   #default_scope { order({votes_amount: :desc}, :title) }
 
   def ago

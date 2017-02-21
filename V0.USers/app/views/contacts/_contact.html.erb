@@ -1,0 +1,15 @@
+
+    <tr
+        <% if contact.state == "new" %>
+            class="success"
+        <% end %>
+    >    
+        <th><%= contact.sender %></th>
+        <th><%= contact.object %></th>
+        <th><%= contact.ago %></th>
+        <th>
+            <% if contact.state == "fav" %>
+                <hr id="star-five">
+            <% end %>
+        </th>
+    <tr>

@@ -1,15 +1,20 @@
 
-    <tr
-        <% if contact.state == "new" %>
-            class="success"
+<tr data-link=<%= "#{contact_path(contact.id)}" %>
+    <% if contact.state == "new" %>
+        class="success"
+    <% end %>
+>    
+    <th><%= contact.sender %></th>
+    <th><%= contact.object %></th>
+    <th><%= contact.ago %></th>
+    <th>
+        <% if contact.state == "fav" %>
+            <hr id="star-five">
         <% end %>
-    >    
-        <th><%= contact.sender %></th>
-        <th><%= contact.object %></th>
-        <th><%= contact.ago %></th>
-        <th>
-            <% if contact.state == "fav" %>
-                <hr id="star-five">
-            <% end %>
-        </th>
-    <tr>
+    </th>
+</tr>
+<script>
+    $("tr[data-link]").click(function() {
+    window.location = $(this).data("link")
+    })
+</script>

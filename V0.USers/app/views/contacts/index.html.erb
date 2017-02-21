@@ -8,39 +8,43 @@
     <div class="col-sm-2"><div class="test-bord">hchcyj</div></div>
 
     <div class="col-sm-5">
-      <h2>Contact</h2>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Sender</th>
-            <th>Object</th>
-            <th>Date</th>
-            <th></th>
-          </tr>
-        </thead>
+      <div class="mail-tab">
+        <h2>Contact</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Sender</th>
+              <th>Object</th>
+              <th>Date</th>
+              <th></th>
+            </tr>
+          </thead>
 
-        <tbody>
-          <%= render @contacts.where("aim = 'contact'").limit(10) %>
-        </tbody>
-      </table>
+          <tbody>
+            <%= render @contacts.where("aim = 'contact'").limit(10) %>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <div class="col-sm-5">
-      <h2>Hire</h2>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Sender</th>
-            <th>Object</th>
-            <th>Date<th>
-            <th></th>
-          </tr>
-        </thead>
+      <div class="mail-tab">
+        <h2>Hire</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Sender</th>
+              <th>Object</th>
+              <th>Date<th>
+              <th></th>
+            </tr>
+          </thead>
 
-        <tbody>
-          <%= render @contacts.where("aim = 'hire'").limit(10) %>
-        </tbody>
-      </table>
+          <tbody>
+            <%= render @contacts.where("aim = 'hire'").limit(10) %>
+          </tbody>
+        </table>
+      </div>
     </div>
 
   </div>

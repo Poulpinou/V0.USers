@@ -9,7 +9,8 @@
     <%= javascript_include_tag 'ckeditor/ckeditor.js' %>
   </head>
 
-  <body>
+  <body class= <%= "#{controller.controller_name}" %>>
+  
     <header class="header">
       <div class="row">
 
@@ -80,6 +81,10 @@
           <a> Download </a>
           <a> ADN </a>
           <a> Contact </a>
+
+          <% if user_signed_in? %>
+            <%= link_to 'Mails', contacts_path if current_user.role == "Admin" %>
+          <% end %>
         </h4>
       </div>
     </div>

@@ -1,7 +1,6 @@
 class Notif < ApplicationRecord
     validates :user_id, :presence => true
     validates :content, :presence => true
-    validates :seen, :presence => true
     validates :redirection, :presence => true
 
     def self.create userID, subject, objects=[nil], url
@@ -9,7 +8,6 @@ class Notif < ApplicationRecord
         notif.user_id = userID
         notif.content = notif.create_content(subject, objects)
         notif.redirection = url
-        notif.seen = false
         notif.save!
     end
 

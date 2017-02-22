@@ -12,6 +12,7 @@
             <hr id="star-five">
         <% end %>
     </th>
+    <th> <%= button_to 'x', contact, method: :delete, data: { confirm: 'Are you sure?' }, class: "del" %> </th>
 </tr>
 <script>
     $("tr[data-link]").click(function() {

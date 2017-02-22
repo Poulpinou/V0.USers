@@ -20,11 +20,8 @@ end
 
 def sort_type
   cookies[:sort_ideas] = params[:type]
-  redirect_to session[:previous_request_url]
+  redirect_to ideas_url
 end
-
-
-
 
 
 
@@ -36,6 +33,13 @@ end
   # GET /ideas.json
   def index
     @ideas = Idea.all
+    if cookies[:sort_ideas] == "Rank" 
+      @ideas = @ideas.order({votes_amount: :desc}, :title) 
+    elsif cookies[:sort_ideas] == "Last" 
+      @ideas = @ideas.order({created_at: :desc}, :title) 
+    elsif cookies[:sort_ideas] == "Random" 
+      @ideas = @ideas.shuffle 
+    end 
   end
 
   # GET /ideas/1

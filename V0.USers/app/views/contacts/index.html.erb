@@ -6,13 +6,31 @@
 
     <div class="col-sm-2">
       <div class="container">
+      <p><%= cookies[:sort_contacts]%></p>
+        <h3>Sort by:</h3>
+          <h4><%= link_to "Last", sort_contacts_path("Last") %></h4>
+          <h4><%= link_to "First", sort_contacts_path("First") %></h4>
+          <h4><%= link_to "Random", sort_contacts_path("Random") %></h4>
+        <h3>Filter:</h3>
+          <h4><%= link_to "New", sort_contacts_path("New") %></h4>
+          <h4><%= link_to "Favorite", sort_contacts_path("Fav") %></h4>
 
+          <div class="dropdown" >
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Label
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <% Contact.labels_kind.each do |label|%>
+                <li> <%= link_to "#{label.capitalize}", sort_contacts_path(label) %></li>
+              <% end %>
+            </ul>
+          </div>
       </div>
     </div>
 
-    <div class="col-sm-5">
+    <div class="col-sm-10">
       <div class="mail-tab">
-        <h2>Contact</h2>
         <table class="table">
           <thead>
             <tr>
@@ -25,27 +43,7 @@
           </thead>
 
           <tbody class="draw-mail">
-            <%= render @contacts.where("aim = 'contact'").limit(10) %>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="col-sm-5">
-      <div class="mail-tab">
-        <h2>Hire</h2>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Sender</th>
-              <th>Object</th>
-              <th>Date<th>
-              <th></th>
-            </tr>
-          </thead>
-
-          <tbody class="draw-mail">
-            <%= render @contacts.where("aim = 'hire'").limit(10) %>
+            <%= render @contacts %>
           </tbody>
         </table>
       </div>

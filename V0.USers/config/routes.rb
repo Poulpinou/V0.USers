@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   # Sort drop down
   get 'ideas/sort/:type', to: "ideas#sort_type", as: "sort_ideas"
+  get 'contacts/sort/:type', to: "contacts#sort_type", as: "sort_contacts"
 
   #change role
   get 'role/:role/:id', to: "users#modif_role", as: "modif_role"

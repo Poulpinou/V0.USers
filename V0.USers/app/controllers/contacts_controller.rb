@@ -1,10 +1,30 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
 
+  def sort_type
+    cookies[:sort_contacts] = params[:type]
+    redirect_to contacts_url
+  end
+
+
   # GET /contacts
   # GET /contacts.json
   def index
     @contacts = Contact.all.order(created_at: :desc)
+    if cookies[:sort_contacts] == "Last" || cookies[:sort_contacts] == nil
+      @contacts = @contacts.order({created_at: :desc}, :sender)  
+    elsif cookies[:sort_contacts] == "First" 
+      @contacts = @contacts.order(:created_at).reverse
+    elsif cookies[:sort_contacts] == "Random" 
+      @contacts = @contacts.shuffle 
+    elsif cookies[:sort_contacts] == "New"
+      @contacts = @contacts.where("state = 'new'")
+    elsif cookies[:sort_contacts] == "Fav"
+      @contacts = @contacts.where("state = 'fav'")
+    else
+      #filters label section
+      @contacts = @contacts.where("aim = '#{cookies[:sort_contacts]}'")
+    end
   end
 
   # GET /contacts/1

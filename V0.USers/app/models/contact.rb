@@ -14,4 +14,8 @@ class Contact < ApplicationRecord
     def rem_from_fav
         self.read
     end
+
+    def self.labels_kind
+        labels_kind = [:contact, :hire, :bug]
+    end
 end

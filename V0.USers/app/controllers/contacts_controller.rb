@@ -13,7 +13,7 @@ class ContactsController < ApplicationController
       @contact.state = "seen"
     end
     @contact.save
-    redirect_to @contact
+    redirect_to session[:previous_request_url]
   end
 
 
@@ -104,6 +104,6 @@ class ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.fetch(:contact, {}).permit(:object, :content)
+      params.fetch(:contact, {}).permit(:object, :content, :aim)
     end
 end

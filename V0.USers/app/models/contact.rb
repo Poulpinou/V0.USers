@@ -16,7 +16,7 @@ class Contact < ApplicationRecord
     end
 
     def self.labels_kind
-        labels_kind = [:contact, :hire, :bug]
+        return [:contact, :hire, :bug]
     end
 
     def star

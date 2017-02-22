@@ -18,7 +18,7 @@
       </div>
 
       <div class= "col-sm-1">
-        <%= button_to 'x', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "delete_button" if current_user.role == "Admin" %>
+        <%= button_delete_with_icon "<i class='fa fa-trash-o' aria-hidden='true'></i>", comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "delete_button" if current_user.role == "Admin" %>
       </div>
 
     </div>

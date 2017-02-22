@@ -12,10 +12,17 @@
             <hr id="star-five">
         <% end %>
     </th>
-    <th> <%= button_to 'x', contact, method: :delete, data: { confirm: 'Are you sure?' }, class: "del" %> </th>
+    <th onmouseover="falsify()" onmouseout="truthify()"> <%= button_delete_with_icon("<i class='fa fa-trash-o' aria-hidden='true'></i>", contact, method: :delete, data: { confirm: 'Are you sure?' })%> </th>
 </tr>
 <script>
+    $checktrash = false;
+
+    function falsify(){$checktrash = false;}
+    function truthify(){$checktrash = true;}
+
     $("tr[data-link]").click(function() {
-    window.location = $(this).data("link")
+        if ($checktrash){
+            window.location = $(this).data("link")
+        }
     })
 </script>

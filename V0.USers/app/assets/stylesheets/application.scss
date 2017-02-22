@@ -12,6 +12,7 @@
  *
  *= require_tree
  *= require_self
+ *= require font-awesome
  */
  
 @import "bootstrap-sprockets";
@@ -33,9 +34,13 @@
 }
 /* Bars */
 .header {
+  position: fixed;
+  left: 0;
+  right: 0;
   background-color: black;
   color: grey;
   height: 40px;
+  z-index: 10;
 }
 
 .navbar {
@@ -43,7 +48,7 @@
   height: 40px;
 }
 
-.navbar > div > h4 > a {
+.navbar > div > div > div > h4 > a {
   padding: 20px;
 }
 

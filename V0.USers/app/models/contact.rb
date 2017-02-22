@@ -14,12 +14,4 @@ class Contact < ApplicationRecord
     def rem_from_fav
         self.read
     end
-
-    def line
-        line = "<tr"
-        line += " class='success' " if self.state == "new"
-        line += "><th>"+ self.sender + "</th><th>" + self.object + "</th><th>" + self.ago + "</th><th>"
-        line += "<hr id='star-five'>" if self.state == "fav"
-        line += "</th></tr>"
-    end
 end

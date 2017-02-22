@@ -15,7 +15,7 @@
     <th onmouseover="falsify()" onmouseout="truthify()"> <%= button_delete_with_icon("<i class='fa fa-trash-o' aria-hidden='true'></i>", contact, method: :delete, data: { confirm: 'Are you sure?' })%> </th>
 </tr>
 <script>
-    $checktrash = false;
+    $checktrash = true;
 
     function falsify(){$checktrash = false;}
     function truthify(){$checktrash = true;}

@@ -1,9 +1,19 @@
 class ContactsController < ApplicationController
-  before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :set_contact, only: [:show, :edit, :update, :destroy, :switch_fav]
 
   def sort_type
     cookies[:sort_contacts] = params[:type]
     redirect_to contacts_url
+  end
+
+  def switch_fav
+    if @contact.state == "seen"
+      @contact.state = "fav"
+    else
+      @contact.state = "seen"
+    end
+    @contact.save
+    redirect_to @contact
   end
 
 
@@ -32,6 +42,7 @@ class ContactsController < ApplicationController
   def show
     @contact.read
     @contact.save
+    @sender = User.find_by(pseudo: @contact.sender)
   end
 
   # GET /contacts/new
@@ -80,7 +91,7 @@ class ContactsController < ApplicationController
   def destroy
     @contact.destroy
     respond_to do |format|
-      format.html { redirect_to session[:previous_request_url], notice: 'Contact was successfully destroyed.' }
+      format.html { redirect_to contacts_path, notice: 'Contact was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

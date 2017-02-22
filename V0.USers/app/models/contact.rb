@@ -4,7 +4,7 @@ class Contact < ApplicationRecord
     validates :content, :presence => true
 
     def read
-        self.state = :seen
+        self.state = :seen if self.state != "fav"
     end
 
     def add_to_fav
@@ -17,5 +17,13 @@ class Contact < ApplicationRecord
 
     def self.labels_kind
         labels_kind = [:contact, :hire, :bug]
+    end
+
+    def star
+        if self.state == "fav"
+            return "star"
+        else
+            return "star-o"
+        end
     end
 end

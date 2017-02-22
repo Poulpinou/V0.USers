@@ -6,7 +6,7 @@
 
     <div class="col-sm-2">
       <div class="container">
-      <p><%= cookies[:sort_contacts]%></p>
+      <p>Sorted by <%= cookies[:sort_contacts]%></p>
         <h3>Sort by:</h3>
           <h4><%= link_to "Last", sort_contacts_path("Last") %></h4>
           <h4><%= link_to "First", sort_contacts_path("First") %></h4>

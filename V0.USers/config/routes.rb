@@ -27,6 +27,9 @@ Rails.application.routes.draw do
   #change role
   get 'role/:role/:id', to: "users#modif_role", as: "modif_role"
 
+  #mails
+  post 'contacts/:id', to: "contacts#switch_fav"
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -5,7 +5,7 @@
 .mail-tab {
     margin: 4px;
     padding: 4px;
-    background-color: floralwhite;
+    background-color: lightskyblue;
     border-radius: 10px;
     border: 1px solid lightgrey;
 }
@@ -19,9 +19,10 @@
 .mail-content {
     border: 4px solid lightgrey;
     background-color: ghostwhite;
-    margin: 10px;
-    padding: 5px;
+    margin: 20px;
+    padding: 10px;
     border-radius: 10px;
+    min-height: 330px;
 }
 
 .sender-profile {
@@ -32,7 +33,30 @@
     border-radius: 10px;
 }
 
+.sender-profile > img {
+    position: absolute; 
+    left: -25px;
+    top: 70px;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    border: 2px solid grey;
+}
+
+.sender-profile > h3 {
+    position: absolute; 
+    left: 70px;
+    top: 85px;
+}
+
 .mail-btn > form {
+    margin: 3px;
+    margin-top: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.mail-btn > button {
     margin: 3px;
     margin-top: 20px;
     display: inline-block;

@@ -7,7 +7,7 @@
     <th><%= contact.sender %></th>
     <th><%= contact.object %></th>
     <th><%= contact.ago %></th>
-    <th ><div class="label-<%= contact.aim %>" ><%= contact.aim.capitalize %><div></th>
+    <th ><div class="label-<%= contact.aim %>" ><%= contact.aim.capitalize %></div></th>
     <th onmouseover="falsify()" onmouseout="truthify()"><%= button_to_with_icon("<i class='fa fa-#{contact.star}' aria-hidden='true'></i>", contact, action: :switch_fav)%></th>
     <th onmouseover="falsify()" onmouseout="truthify()"> <%= button_delete_with_icon("<i class='fa fa-trash-o' aria-hidden='true'></i>", contact, method: :delete, data: { confirm: 'Are you sure?' })%> </th>
 </tr>

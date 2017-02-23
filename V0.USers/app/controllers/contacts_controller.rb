@@ -29,6 +29,8 @@ class ContactsController < ApplicationController
       @contacts = @contacts.shuffle 
     elsif cookies[:sort_contacts] == "New"
       @contacts = @contacts.where("state = 'new'")
+    elsif cookies[:sort_contacts] == "Seen"
+      @contacts = @contacts.where("state = 'seen'")
     elsif cookies[:sort_contacts] == "Fav"
       @contacts = @contacts.where("state = 'fav'")
     else

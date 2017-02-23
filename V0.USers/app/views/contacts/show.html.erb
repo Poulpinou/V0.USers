@@ -1,12 +1,14 @@
 <div class="container">
     <div class="row">
 
-        <div class="col-sm-7">
+        <div class="col-sm-6">
             <h2>Mail from <%= link_to @sender.pseudo, @sender %></h2>
         </div>
 
-        <div class="col-sm-3">
+        <div class="col-sm-4">
+        
             <div class="mail-btn">
+                <button class="label-<%= @contact.aim %>" ><%= @contact.aim.capitalize %></button>
                 <%= button_to_with_icon("<i class='fa fa-#{@contact.star}' aria-hidden='true'></i>", @contact, action: :switch_fav)%>
                 <%= button_to_with_icon("<i class='fa fa-paper-plane' aria-hidden='true'></i>", @contact, action: :send_mail)%><!-- To Do -->
                 <%= button_delete_with_icon("<i class='fa fa-trash-o' aria-hidden='true'></i>", @contact, method: :delete, data: { confirm: 'Are you sure?' })%>
@@ -33,7 +35,8 @@
         <div class="col-sm-3">
             <h2>Sender's profile</h2><hr>
             <div class="sender-profile">
-                <h3><img src="<%= @sender.picture %>" class="avatar-medium"> <%= link_to @sender.pseudo, @sender %> <small> - <%= @sender.role %></small></h3>
+                <img src="<%= @sender.picture %>" class="avatar-medium">
+                <h3> <%= link_to @sender.pseudo, @sender %> <small> - <%= @sender.role %></small></h3><br><hr>
                 <h4><label>Mail: </label> <%= @sender.email %></h4>
                 <h4><label>Suscribed: </label> <%= @sender.ago %></h4>
                 <h4><label>Ideas: </label> <%= @sender.idea.count %></h4>

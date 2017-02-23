@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contacts
   mount Ckeditor::Engine => '/ckeditor'
   resources :comments
   devise_for :users, :controllers => { registrations: 'registrations' }
@@ -21,9 +22,14 @@ Rails.application.routes.draw do
 
   # Sort drop down
   get 'ideas/sort/:type', to: "ideas#sort_type", as: "sort_ideas"
+  get 'contacts/sort/:type', to: "contacts#sort_type", as: "sort_contacts"
 
   #change role
   get 'role/:role/:id', to: "users#modif_role", as: "modif_role"
+
+  #mails
+  post 'contacts/:id', to: "contacts#switch_fav"
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,38 @@
+<%= form_for(contact) do |f| %>
+  <% if contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+      <% contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <h3> <%= f.label "Object" %></h3>
+    <%= f.text_field :object, maxlength: 32 %>
+  </div>
+
+  <div class="field">
+    <h3> <%= f.label "Label" %><small> - Choose a label helps us to give faster answers</small></h3>
+    <%= f.select(:aim, Contact.labels_kind)%>
+  </div>
+
+  <div class="field">
+    <h3><%= f.label "Content" %></h3>
+    <%= f.cktext_area(:content, cols: 60, rows: 10, id:"ck") %>
+  </div>
+
+  <br>
+
+  <div class="actions">
+    <%= f.submit "Send" %>
+  </div>
+
+  <script>
+        CKEDITOR.replace('ck')
+  </script>
+<% end %>

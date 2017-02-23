@@ -10,6 +10,9 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require_tree
+ *= require_self
+ *= require font-awesome
  */
  
 @import "bootstrap-sprockets";
@@ -29,11 +32,23 @@
   width: 25px;
   border-radius: 30px;
 }
+
+.avatar-medium {
+  margin: 4px;
+  border: 2px solid black;
+  height: 50px;
+  width: 50px;
+  border-radius: 30px;
+}
 /* Bars */
 .header {
+  position: fixed;
+  left: 0;
+  right: 0;
   background-color: black;
   color: grey;
   height: 40px;
+  z-index: 10;
 }
 
 .navbar {
@@ -41,7 +56,7 @@
   height: 40px;
 }
 
-.navbar > div > h4 > a {
+.navbar > div > div > div > h4 > a {
   padding: 20px;
 }
 
@@ -69,6 +84,30 @@
   color: black;
   border-radius: 15px;
   margin: 5px;
+}
+
+/*notifs */
+.notifs {
+  margin: 4px;
+  padding: 4px;
+  background-color: lightgrey;
+  color: black;
+  border-radius: 5px;
+}
+
+.notif-seen {
+  background-color: lightgrey;
+}
+.notif-new {
+  background-color: lightblue;
+}
+
+.notif-display {
+  margin: 5px;
+}
+
+.notif-display > ul {
+  width: 270px;
 }
 
 
@@ -138,6 +177,11 @@
 
 
 /* Buttons */
+.del {
+  background-color: lightgrey;
+}
+
+
 .post-btn {
   margin-left: 140px;
   background: #3498db;

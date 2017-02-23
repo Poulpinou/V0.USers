@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_and_belongs_to_many :votes
   has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>"}, default_url: "http://istc-pc-test-media.cs.washington.edu/images/default-profile-pic.png"
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
+  has_many :notif
 
   
 
@@ -28,6 +29,11 @@ class User < ApplicationRecord
     else
       return false
     end
+  end
+
+  def notif_count user
+    @notifs = Notif.where(seen: false, user_id: user)
+    @notifs.count
   end
 
 

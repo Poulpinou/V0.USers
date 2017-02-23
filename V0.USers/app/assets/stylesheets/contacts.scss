@@ -1,0 +1,146 @@
+.box-test {
+   border: 1px solid red; 
+}
+
+.mail-tab {
+    margin: 4px;
+    padding: 4px;
+    background-color: lightskyblue;
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+}
+
+.draw-mail > tr {
+    border: 1px solid lightgrey;
+    background-color: ghostwhite;
+    border-radius: 10px;
+}
+
+.mail-content {
+    border: 4px solid lightgrey;
+    background-color: ghostwhite;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    min-height: 330px;
+}
+
+.sender-profile {
+    border: 2px solid grey;
+    background-color: lightskyblue;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.sender-profile > img {
+    position: absolute; 
+    left: -25px;
+    top: 70px;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    border: 2px solid grey;
+}
+
+.sender-profile > h3 {
+    position: absolute; 
+    left: 70px;
+    top: 85px;
+}
+
+.mail-btn > form {
+    margin: 3px;
+    margin-top: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.mail-btn > button {
+    margin: 3px;
+    margin-top: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.label-bug {
+    padding: 4px;
+    background-color: indianred;
+    border: 1px solid black;
+    color: white;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    border-radius: 7px;
+}
+.label-contact {
+    padding: 4px;
+    background-color: cornflowerblue;
+    border: 1px solid black;
+    color: white;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    border-radius: 7px;
+}
+.label-hire {
+    padding: 4px;
+    background-color: mediumseagreen;
+    border: 1px solid black;
+    color: white;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    border-radius: 7px;
+}
+
+#star-five { 
+    margin: 5px 0; 
+    position: relative; 
+    display: block; 
+    color: yellow; 
+    width: 0px; 
+    height: 0px; 
+    border-right: 10px solid transparent; 
+    border-bottom: 7px solid yellow; 
+    border-left: 10px solid transparent; 
+    -moz-transform: rotate(35deg); 
+    -webkit-transform: rotate(35deg); 
+    -ms-transform: rotate(35deg); 
+    -o-transform: rotate(35deg); 
+    } 
+
+#star-five:before { 
+    border-bottom: 8px solid yellow; 
+    border-left: 3px solid transparent; 
+    border-right: 3px solid transparent; 
+    position: absolute; 
+    height: 0; 
+    width: 0; 
+    top: -4px; 
+    left: -6px; 
+    display: block; 
+    content: ''; 
+    -webkit-transform: rotate(-35deg); 
+    -moz-transform: rotate(-35deg); 
+    -ms-transform: rotate(-35deg); 
+    -o-transform: rotate(-35deg); 
+    } 
+
+#star-five:after { 
+    position: absolute; 
+    display: block; 
+    color: yellow; 
+    top: 3px; 
+    left: -10px; 
+    width: 0px; 
+    height: 0px; 
+    border-right: 10px solid transparent; 
+    border-bottom: 7px solid yellow; 
+    border-left: 10px solid transparent; 
+    -webkit-transform: rotate(-70deg); 
+    -moz-transform: rotate(-70deg); 
+    -ms-transform: rotate(-70deg); 
+    -o-transform: rotate(-70deg); 
+    content: ''; 
+    }

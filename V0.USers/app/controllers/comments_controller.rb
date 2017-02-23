@@ -28,6 +28,9 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.idea_id = last_url_id
 
+    idea = Idea.find(@comment.idea_id)
+    Notif.create(idea.user_id, "comment", [current_user.pseudo, idea.title], session[:current_request_url])
+
     respond_to do |format|
       if @comment.save
         format.html { redirect_to "/ideas/#{@comment.idea_id}", notice: 'Comment was successfully created.' }

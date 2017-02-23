@@ -49,12 +49,14 @@ class ApplicationController < ActionController::Base
 
 #Later, make an auto update
   def update_ranks
-    ideas = Idea.all.order({votes_amount: :desc}, :title)
-    i = 1
-    ideas.each do |idea|
-      idea.rank = i
-      idea.save(validate: false)
-      i += 1
+    Game.all.each do |game|
+      ideas = Idea.where("game_id = '#{game.id}'").order({votes_amount: :desc}, :title)
+      i = 1
+      ideas.each do |idea|
+        idea.rank = i
+        idea.save(validate: false)
+        i += 1
+      end
     end
     redirect_to session[:previous_request_url]
   end

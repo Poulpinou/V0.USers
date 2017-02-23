@@ -23,6 +23,19 @@
         </div>  
 
         <div class="col-sm-4">
+          <label for="game-select">Actual game : </label>
+          <!-- Choose Game Dropdown -->
+          <div class="dropdown" id="game-select" style="display: inline-block;">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <%= @game.name %>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <% Game.all.each do |game|%>
+                <li> <%= link_to game.name, switch_game_path(game.id) %> </li>
+              <% end %>
+            </ul>
+          </div>
         </div>
 
         <div class="col-sm-3">

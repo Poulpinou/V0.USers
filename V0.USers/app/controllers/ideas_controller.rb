@@ -32,7 +32,7 @@ end
   # GET /ideas
   # GET /ideas.json
   def index
-    @ideas = Idea.all
+    @ideas = Idea.where("game_id = '#{@game.id}'")
     if cookies[:sort_ideas] == "Rank" 
       @ideas = @ideas.order({votes_amount: :desc}, :title) 
     elsif cookies[:sort_ideas] == "Last" 
@@ -65,6 +65,7 @@ end
   def create
     @idea = Idea.new(idea_params)
     @idea.user_id = current_user.id
+    @idea.game_id = @game.id
 
     respond_to do |format|
       if @idea.save

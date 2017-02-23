@@ -4,9 +4,16 @@ class ApplicationController < ActionController::Base
   #protect_from_forgery :except => :receive_guest
   before_action :authenticate_user!
   #before_action :current_or_guest_user
-  before_action :set_last_url
+  before_action :set_last_url, :active_game
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  def active_game
+    #put here default cookies values
+    cookies[:active_game] = cookies[:active_game] || Game.first.id
+
+    @game = Game.find(cookies[:active_game])
+  end
+  
 #guest session
    # if user is logged in, return current_user, else return guest_user
   def current_or_guest_user

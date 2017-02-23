@@ -44,6 +44,9 @@ gem 'ckeditor', '4.1.3'
 # Add Font-awesome
 gem "font-awesome-rails"
 
+# Bake seed with $ rake db:seed:dump
+gem 'seed_dump'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -46,4 +46,17 @@ class User < ApplicationRecord
     self.save(validate: false)
   end
 
+  def can? action
+    # Define rights here
+    case action
+      when "read_mails"
+        return ["Admin", "Team"].include?(self.role)
+      when "write_articles"
+        return ["Admin", "Redactor"].include?(self.role)
+      when "delete_comments"
+        return ["Admin"].include?(self.role)
+      else
+        return false
+    end
+  end
 end

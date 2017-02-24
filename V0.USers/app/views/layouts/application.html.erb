@@ -87,7 +87,7 @@
               <a> ADN </a>
 
               <% if user_signed_in? %>
-                <%= link_to "Mails <span class='badge'>#{Contact.where('state = "new"').count}</span>".html_safe, contacts_path if current_user.role == "Admin" %>
+                <%= link_to "Mails <span class='badge'>#{Contact.where('state = "new"').count}</span>".html_safe, contacts_path if current_user.can? ("read_mails") %>
               <% end %>
             </h4>
           </div>

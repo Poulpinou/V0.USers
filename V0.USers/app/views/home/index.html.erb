@@ -11,6 +11,8 @@
     <h1> Welcome back <%= current_user.pseudo %>! </h1>
     <br>
     <h2>News</h2>
+    <%= link_to("Write article", new_article_path) if current_user.can?("write_articles")%>
+    <%= render "news" %>
   <% end %>
   </div>
 

@@ -23,6 +23,19 @@
         </div>  
 
         <div class="col-sm-4">
+          <label for="game-select">Actual game : </label>
+          <!-- Choose Game Dropdown -->
+          <div class="dropdown" id="game-select" style="display: inline-block;">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <%= @game.name %>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <% Game.all.each do |game|%>
+                <li> <%= link_to game.name, switch_game_path(game.id) %> </li>
+              <% end %>
+            </ul>
+          </div>
         </div>
 
         <div class="col-sm-3">
@@ -66,12 +79,9 @@
       </div>
     </header>
 
-    <br><br><br>
+    <br><br>
 
-    <div class="jumbotron">
-      <h1>V0.USers</h1>
-      <p>- Mettre l'illustration du jeu en cours -</p>
-    </div>
+    <%= image_tag("#{@game.name}-illu.jpg", class:"illu")%>
 
     <div class= "navbar">
       <div class="container">
@@ -95,10 +105,12 @@
           <!-- Contact Button -->
           <div class="col-sm-2">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-              Contact
-            </button>
-            <%= render "home/modal" %>
+            <% if user_signed_in? %>
+              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                Contact
+              </button>
+              <%= render "home/modal" %>
+            <% end %>
           </div>
 
         </div>

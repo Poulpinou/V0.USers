@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :articles
+  resources :games
   resources :contacts
   mount Ckeditor::Engine => '/ckeditor'
   resources :comments
@@ -30,6 +31,9 @@ Rails.application.routes.draw do
 
   #mails
   post 'contacts/:id', to: "contacts#switch_fav"
+
+  #switch :games
+  get 'game/:id', to: "games#switch_active", as: "switch_game"
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

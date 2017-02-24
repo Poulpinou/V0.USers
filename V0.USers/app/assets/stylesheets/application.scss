@@ -19,9 +19,9 @@
 @import "bootstrap";
 
 /* Main illu */
-.jumbotron > h1 {
-  margin-left: auto;
-  width: auto;
+.illu {
+  height: 300px;
+  width: 100%;
 }
 
 /* Images */
@@ -40,6 +40,7 @@
   width: 50px;
   border-radius: 30px;
 }
+
 /* Bars */
 .header {
   position: fixed;
@@ -47,13 +48,11 @@
   right: 0;
   background-color: black;
   color: grey;
-  height: 40px;
   z-index: 10;
 }
 
 .navbar {
   background-color: black;
-  height: 40px;
 }
 
 .navbar > div > div > div > h4 > a {

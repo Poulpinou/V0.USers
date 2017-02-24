@@ -105,10 +105,12 @@
           <!-- Contact Button -->
           <div class="col-sm-2">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-              Contact
-            </button>
-            <%= render "home/modal" %>
+            <% if user_signed_in? %>
+              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                Contact
+              </button>
+              <%= render "home/modal" %>
+            <% end %>
           </div>
 
         </div>

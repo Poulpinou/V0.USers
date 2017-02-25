@@ -18,6 +18,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/*delete right border problem*/
+html, body { overflow-x: hidden; }
+
 /* Main illu */
 .illu {
   height: 300px;
@@ -41,6 +44,13 @@
   border-radius: 30px;
 }
 
+.ad-home > a > img {
+  margin: 7px;
+  border: 2px solid black;
+  height: 600px;
+  width: 100%;
+}
+
 /* Bars */
 .header {
   position: fixed;
@@ -60,15 +70,13 @@
 }
 
 .sidebar {
-  background-color: ghostwhite;
-  border: 2px solid grey;
-  border-radius: 50px;
+  margin: 10px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid darkgrey;
+  background-color: lightcyan;
 }
 
-.sidebar > h2 {
-  color: cornflowerblue;
-  margin-left: 20px;
-}
 
 .sort-bar {
   background-color: ghostwhite;
@@ -124,9 +132,15 @@
 /* blocs */
 .user-bloc-mini {
   margin: 10px;
-  background-color:lightblue;
-  border: 2px solid lightgray;
-  border-radius: 40px;
+  background-color:ghostwhite;
+  border: 2px solid darkgrey;
+  border-radius: 5px;
+  height: 70px;
+}
+
+.user-bloc-mini > h3 {
+  position: relative;
+  top: -15px;
 }
 
 .user-bloc-mini > h3 > img {

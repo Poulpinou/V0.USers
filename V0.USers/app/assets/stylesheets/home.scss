@@ -1,3 +1,40 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.article{
+    margin: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid darkgrey;
+    background-color: lightcyan;
+}
+
+.label-article-new,.label-article-update,.label-article-survey {
+    position: relative;
+    top: -23px;
+    padding: 4px;
+    border: 1px solid darkgrey;
+    color: white;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    border-radius: 7px;
+}
+
+.label-article-new {
+    background-color: mediumseagreen;
+}
+
+.label-article-update {
+    background-color: cadetblue;
+}
+
+.label-article-survey {
+    background-color: orange;
+}
+
+.side-buttons{
+    position: absolute;
+    left: -15px;
+}

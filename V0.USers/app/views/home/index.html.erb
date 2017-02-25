@@ -1,28 +1,50 @@
 
 <div class= "row">
 
-  <div class= "col-md-2"></div>
+  <div class= "col-md-2">
+    <div class="sidebar">
+      <label for="game-select">Switch game : </label>
+          <!-- Choose Game Dropdown -->
+          <div class="dropdown" id="game-select" style="display: inline-block;">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <%= @game.name %>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <% Game.all.each do |game|%>
+                <li> <%= link_to game.name, switch_game_path(game.id) %> </li>
+              <% end %>
+            </ul>
+          </div>
+    </div>
+  <!-- advertisment -->
+    <div class="ad-home">
+      <%= link_to image_tag("ad_exemple.jpeg"), root_path %>
+    </div>
+  </div>
 
   <div class= "col-md-7">
+  <!-- Welcome message -->
   <% if current_user.has_no_post? %>
     <h1> Welcome on V0.USers <%= current_user.pseudo %>! </h1>
     <p><span class"margin">You can add an idea <%= link_to "here", users_new_idea_path(current_user.id) %>. </span></p>
   <% else %>
     <h1> Welcome back <%= current_user.pseudo %>! </h1>
     <br>
-    <h2>News</h2>
-    <%= link_to("Write article", new_article_path) if current_user.can?("write_articles")%>
-    <%= render "news" %>
   <% end %>
+
+  <!-- News -->
+  <h2>News <small> - <%= link_to("Write article", new_article_path) if current_user.can?("write_articles")%></small></h2>
+  <%= render @articles.order(created_at: :desc) %><!-- préciser .where("label = 'new'") pour cibler --> 
   </div>
 
   <div class= "col-md-3">
     <!-- sidebar -->
+    <h2>Members <small>  <%= User.count %> </small></h2>
     <div class= "sidebar">
       <!-- Members -->
-      <h2>Members</h2>
-      <hr>
-      <% @users.each do |user| %>
+
+      <% @users.shuffle.take(5).each do |user| %>
         <div class="user-bloc-mini">
           <h3>
             <img src=<%= user.picture.url %> >
@@ -35,15 +57,9 @@
 
     <br>
 
+    <h2> Ideas <small> - <%= link_to "Post Idea", users_new_idea_path(current_user.id) %></small></h2>
     <div class= "sidebar">
       <!-- Last Comments -->
-      <h2> Last Posts
-        <%= content_tag :button, type: "button", class: "post-btn" do
-          link_to "Post Idea", users_new_idea_path(current_user.id)
-        end %>
-      </h2>
-      <hr>
-
       <%= render @ideas.limit 5 %>
       
       <% if Idea.count > 5 %>
@@ -55,4 +71,17 @@
   </div>
 
 </div>
+
+<script>
+    function show(article_id){
+        var sbtn = document.getElementById('s-btn-' + article_id);
+        sbtn.style.display = 'block';
+    }
+
+    function hide(article_id){
+        var sbtn = document.getElementById('s-btn-' + article_id);
+        sbtn.style.display = 'none';
+    }
+</script>
+
 

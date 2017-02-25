@@ -14,4 +14,12 @@ module ApplicationHelper
             end
         end
     end
+
+    def link_to_with_icon(text, path, classes=nil)
+        form_tag path, :method => :get do
+            button_tag(classes) do
+            raw text
+            end
+        end
+    end
 end

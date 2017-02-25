@@ -1,0 +1,25 @@
+<div class="article" onmouseover="show(<%= article.id %>)" onmouseout="hide(<%= article.id %>)">
+    <% if current_user.can? "write_articles" %>
+        <div id="s-btn-<%= article.id %>" class="side-buttons" style="display: none;">
+            <%= link_to_with_icon("<i class='fa fa-pencil-square-o' aria-hidden='true'></i>", edit_article_path(article.id))%>
+            <%= button_delete_with_icon("<i class='fa fa-trash-o' aria-hidden='true'></i>", article, method: :delete, data: { confirm: 'Are you sure?' })%>
+        </div>
+    <% end %>
+    <div class="row">
+
+        <div class="col-sm-10">
+            <small><%= article.created_at.strftime("On %A %B %Y at %H:%M")%></small>
+        </div>
+
+        <div class="col-sm-2">
+            <div class="label-article-<%= article.label %>"><%= article.label.capitalize %></div>
+        </div>
+
+    </div>
+    
+    <div class="content-article">
+        <%= article.content.html_safe %>
+    </div>
+</div>
+<br>
+

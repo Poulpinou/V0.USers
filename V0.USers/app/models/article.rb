@@ -3,6 +3,6 @@ class Article < ApplicationRecord
     validates :content, presence: true
 
     def self.labels_kind
-        return [:new, :survey, :maj, :global]
+        return [:new, :survey, :update, :global]
     end
 end

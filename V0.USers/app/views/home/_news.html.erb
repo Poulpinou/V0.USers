@@ -3,17 +3,18 @@
     <div class="row">
 
         <div class="col-sm-10">
-            <%= news.created_at.strftime("On %A %B %Y at %H:%M")%>
+            <small><%= news.created_at.strftime("On %A %B %Y at %H:%M")%></small>
         </div>
 
         <div class="col-sm-2">
-            <%= news.label %>
+            <div class="label-article-<%= news.label %>"><%= news.label.capitalize %></div>
         </div>
 
     </div>
-    <hr>
+    
     <div class="content-news">
         <%= news.content.html_safe %>
     </div>
 </div>
+<br>
 <% end %>

@@ -4,16 +4,18 @@
   <div class= "col-md-2"></div>
 
   <div class= "col-md-7">
+  <!-- Welcome message -->
   <% if current_user.has_no_post? %>
     <h1> Welcome on V0.USers <%= current_user.pseudo %>! </h1>
     <p><span class"margin">You can add an idea <%= link_to "here", users_new_idea_path(current_user.id) %>. </span></p>
   <% else %>
     <h1> Welcome back <%= current_user.pseudo %>! </h1>
     <br>
-    <h2>News</h2>
-    <%= link_to("Write article", new_article_path) if current_user.can?("write_articles")%>
-    <%= render "news" %>
   <% end %>
+
+  <!-- News -->
+  <h2>News <small> - <%= link_to("Write article", new_article_path) if current_user.can?("write_articles")%></small></h2>
+  <%= render @articles.order(created_at: :desc) %><!-- préciser .where("label = 'new'") pour cibler --> 
   </div>
 
   <div class= "col-md-3">
@@ -55,4 +57,17 @@
   </div>
 
 </div>
+
+<script>
+    function show(article_id){
+        var sbtn = document.getElementById('s-btn-' + article_id);
+        sbtn.style.display = 'block';
+    }
+
+    function hide(article_id){
+        var sbtn = document.getElementById('s-btn-' + article_id);
+        sbtn.style.display = 'none';
+    }
+</script>
+
 

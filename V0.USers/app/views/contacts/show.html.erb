@@ -39,6 +39,7 @@
                 <h3> <%= link_to @sender.pseudo, @sender %> <small> - <%= @sender.role %></small></h3><br><hr>
                 <h4><label>Mail: </label> <%= @sender.email %></h4>
                 <h4><label>Suscribed: </label> <%= @sender.ago %></h4>
+                <h4><label>Last connection: </label> <%= @sender.ago @sender.last_sign_in_at%></h4>
                 <h4><label>Ideas: </label> <%= @sender.idea.count %></h4>
                 <!-- Make a button which send an answer -->
             </div>

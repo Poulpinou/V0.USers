@@ -13,4 +13,22 @@ class Idea < ApplicationRecord
     User.find idea.user_id
   end
 
+  def approve
+    self.seal = :approved
+    self.seal_text = DateTime.now.strftime("%m/%d/%Y")
+    self.save
+  end
+
+  def implement
+    self.seal = :implemented
+    self.seal_text = DateTime.now.strftime("%m/%d/%Y")
+    self.save
+  end
+
+  def reject reason
+    self.seal = :rejected
+    self.seal_text = reason
+    self.save
+  end
+
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170224165542) do
+ActiveRecord::Schema.define(version: 20170225221502) do
 
   create_table "articles", force: :cascade do |t|
     t.integer  "game_id"
@@ -72,6 +72,9 @@ ActiveRecord::Schema.define(version: 20170224165542) do
     t.datetime "updated_at",               null: false
     t.integer  "rank",         default: 0
     t.integer  "game_id"
+    t.string   "seal"
+    t.string   "seal_text"
+    t.string   "label"
     t.index ["game_id"], name: "index_ideas_on_game_id"
     t.index ["user_id"], name: "index_ideas_on_user_id"
   end

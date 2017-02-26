@@ -35,6 +35,11 @@ Rails.application.routes.draw do
   #switch :games
   get 'game/:id', to: "games#switch_active", as: "switch_game"
 
+  #sceal
+  post 'ideas/seal/a/:id', to: "ideas#approve", as: "approve"
+  post 'ideas/:id', to: "ideas#reject", as: "reject"
+  post 'ideas/close/:id', to: "ideas#close", as: "close"
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

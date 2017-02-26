@@ -2,6 +2,24 @@
   <div class="row">
 
     <div class="col-sm-10">
+      <% if @idea.seal == "rejected" %>
+        <div class="seal-rejected">
+          <h5>
+            Your seal request has been rejected: <%= @idea.seal_text %>
+            <%= button_to "close", close_path(@idea)%>
+          </h5>
+          
+        </div>
+      <% end %>
+
+      <% if @idea.seal == "approved" || @idea.seal == "implemented" %>
+        <div class="seal">
+          <h3><%= @idea.seal.capitalize %><br><small>By V0.USers</small></h3>
+          <h4><%= @idea.seal_text %></h4>
+          <%= image_tag "seal.png"%>
+        </div>
+      <% end %>
+
       <h1><%= @idea.title %><small>- By <%= link_to @idea.user.pseudo, profile_path(@idea.user.id) %></h1>
       <br>
       <h4><%= @idea.description.html_safe %><h4>
@@ -36,6 +54,31 @@
         </div>
 
       </div>
+      
+      <hr>
+      
+      <div class="seal-box">
+      <h4> Seal : </h4>
+        <button class="seal-btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Reject
+        </button>  
+        <%= button_to "Approve", approve_path, class:"seal-btn" %>
+      </div>
+      <div class="collapse" id="collapseExample">
+        <div class="well">
+          <%= form_tag(url: reject_path(@idea), method: :post) do %>
+            <div class="field">
+              <%= text_area_tag :seal_text, nil, cols: 16, rows:4, maxlength: 500, style:"resize:none", placeholder: "Why is it rejected?" %>
+            </div>
+            <div class="actions">
+              <%= submit_tag "Reject"%>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <br>
+      
+
       <!-- Temporary -->
         <% if current_user.role == "Admin" %>
           <%= link_to 'Update', update_ranks_path  %>

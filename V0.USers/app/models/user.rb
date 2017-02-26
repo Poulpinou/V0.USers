@@ -55,6 +55,8 @@ class User < ApplicationRecord
         return ["Admin", "Redactor"].include?(self.role)
       when "delete_comments"
         return ["Admin"].include?(self.role)
+      when "seal"
+        return ["Admin", "Team"].include?(self.role)
       else
         return false
     end

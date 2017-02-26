@@ -15,19 +15,25 @@ class Idea < ApplicationRecord
 
   def approve
     self.seal = :approved
-    self.seal_text = DateTime.now.strftime("%m/%d/%Y")
+    self.seal_text = DateTime.now.strftime("%m/%d/%Y").to_s
     self.save
   end
 
   def implement
     self.seal = :implemented
-    self.seal_text = DateTime.now.strftime("%m/%d/%Y")
+    self.seal_text = DateTime.now.strftime("%m/%d/%Y").to_s
     self.save
   end
 
   def reject reason
     self.seal = :rejected
     self.seal_text = reason
+    self.save
+  end
+
+  def close
+    self.seal = nil
+    self.seal_text = nil
     self.save
   end
 

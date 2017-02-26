@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-  before_action :set_idea, only: [:show, :edit, :update, :destroy, :vote]
+  before_action :set_idea, only: [:show, :edit, :update, :destroy, :vote, :approve, :reject, :close]
 
 
 def vote
@@ -23,6 +23,20 @@ def sort_type
   redirect_to ideas_url
 end
 
+def approve
+  @idea.approve
+  redirect_to @idea
+end
+
+def reject
+  @idea.reject(params[:seal_text])
+  redirect_to @idea
+end
+
+def close
+  @idea.close
+  redirect_to @idea
+end
 
 
 

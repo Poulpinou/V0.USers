@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-  before_action :set_idea, only: [:show, :edit, :update, :destroy, :vote, :approve, :reject, :close]
+  before_action :set_idea, only: [:show, :edit, :update, :destroy, :vote, :approve, :reject, :close, :send_request]
 
 
 def vote
@@ -38,7 +38,15 @@ def close
   redirect_to @idea
 end
 
-
+def send_request
+  request = Contact.new
+  request.sender = User.find(@idea.user_id).pseudo
+  request.object = "#{request.sender}'s request for #{@idea.title}"
+  request.content = "#{request.sender} made a request for <a href=#{idea_url(@idea)}>#{@idea.title}</a>"
+  request.aim = "request"
+  request.save
+  redirect_to @idea, notice: "Your request has been sent, you'll be noticed when approved or not"
+end
 
 
 

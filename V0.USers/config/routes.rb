@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   post 'ideas/seal/a/:id', to: "ideas#approve", as: "approve"
   post 'ideas/:id', to: "ideas#reject", as: "reject"
   post 'ideas/close/:id', to: "ideas#close", as: "close"
+  get 'ideas/request/:id', to: "ideas#send_request", as: "request"
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

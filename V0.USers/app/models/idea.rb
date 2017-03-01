@@ -34,6 +34,7 @@ class Idea < ApplicationRecord
   def close
     self.seal = nil
     self.seal_text = nil
+    self.seal_rsend = false
     self.save
   end
 

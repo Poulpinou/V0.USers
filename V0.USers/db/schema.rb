@@ -68,13 +68,13 @@ ActiveRecord::Schema.define(version: 20170225221502) do
     t.text     "content"
     t.integer  "user_id"
     t.integer  "votes_amount", default: 0
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "rank",         default: 0
     t.integer  "game_id"
     t.string   "seal"
     t.string   "seal_text"
-    t.string   "label"
+    t.boolean  "seal_rsend",   default: false
     t.index ["game_id"], name: "index_ideas_on_game_id"
     t.index ["user_id"], name: "index_ideas_on_user_id"
   end

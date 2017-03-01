@@ -45,6 +45,8 @@ def send_request
   request.content = "#{request.sender} made a request for <a href=#{idea_url(@idea)}>#{@idea.title}</a>"
   request.aim = "request"
   request.save
+  @idea.seal_rsend = true
+  @idea.save
   redirect_to @idea, notice: "Your request has been sent, you'll be noticed when approved or not"
 end
 

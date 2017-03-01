@@ -57,9 +57,11 @@
       
       <hr>
 
-      <div class="seal-request">
-        <%= link_to "Seal request", request_path(@idea.id), class:"seal-btn" %>
-      </div>
+      <% if !@idea.seal_rsend? && @idea.owner(@idea) == current_user %>
+        <div class="seal-request">
+          <%= link_to "Seal request", request_path(@idea.id), class:"seal-btn" %>
+        </div>
+      <% end %>
       
       <div class="seal-box">
       <h4> Seal : </h4>

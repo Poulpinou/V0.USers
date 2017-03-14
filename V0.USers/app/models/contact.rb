@@ -2,6 +2,7 @@ class Contact < ApplicationRecord
     validates :sender, :presence => true
     validates :object, :presence => true
     validates :content, :presence => true
+    belongs_to :label
 
     def read
         self.state = :seen if self.state != "fav"

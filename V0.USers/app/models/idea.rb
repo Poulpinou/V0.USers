@@ -1,6 +1,7 @@
 class Idea < ApplicationRecord
   belongs_to :user
   belongs_to :game
+  belongs_to :label
   has_many :comment
   has_and_belongs_to_many :votes
   validates :title, :presence => true

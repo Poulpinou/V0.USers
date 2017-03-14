@@ -10,16 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170225221502) do
+ActiveRecord::Schema.define(version: 20170314182925) do
 
   create_table "articles", force: :cascade do |t|
     t.integer  "game_id"
     t.string   "author"
-    t.string   "label"
     t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "label_id"
     t.index ["game_id"], name: "index_articles_on_game_id"
+    t.index ["label_id"], name: "index_articles_on_label_id"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -53,6 +54,8 @@ ActiveRecord::Schema.define(version: 20170225221502) do
     t.string   "aim",        default: "contact"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.integer  "label_id"
+    t.index ["label_id"], name: "index_contacts_on_label_id"
   end
 
   create_table "games", force: :cascade do |t|
@@ -75,8 +78,19 @@ ActiveRecord::Schema.define(version: 20170225221502) do
     t.string   "seal"
     t.string   "seal_text"
     t.boolean  "seal_rsend",   default: false
+    t.integer  "label_id"
     t.index ["game_id"], name: "index_ideas_on_game_id"
+    t.index ["label_id"], name: "index_ideas_on_label_id"
     t.index ["user_id"], name: "index_ideas_on_user_id"
+  end
+
+  create_table "labels", force: :cascade do |t|
+    t.string   "name"
+    t.string   "category"
+    t.string   "details"
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "notifs", force: :cascade do |t|

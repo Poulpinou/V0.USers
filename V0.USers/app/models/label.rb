@@ -51,6 +51,10 @@ class Label < ApplicationRecord
         return self.where(category: category) if self.categories.include?(category)
     end
 
+    def self.get_id name
+        return self.where(name: name).first.id
+    end
+
 
 
 end

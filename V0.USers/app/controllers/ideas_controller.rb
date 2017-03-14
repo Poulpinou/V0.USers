@@ -43,10 +43,11 @@ def send_request
   request.sender = User.find(@idea.user_id).pseudo
   request.object = "#{request.sender}'s request for #{@idea.title}"
   request.content = "#{request.sender} made a request for <a href=#{idea_url(@idea)}>#{@idea.title}</a>"
-  request.aim = "request"
-  request.save
-  @idea.seal_rsend = true
-  @idea.save
+  request.label_id = Label.get_id(:request)
+  if request.save
+    @idea.seal_rsend = true
+    @idea.save
+  end
   redirect_to @idea, notice: "Your request has been sent, you'll be noticed when approved or not"
 end
 
@@ -138,6 +139,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params
-      params.fetch(:idea).permit(:title, :description, :content)
+      params.fetch(:idea).permit(:title, :description, :content, :label_id)
     end
 end

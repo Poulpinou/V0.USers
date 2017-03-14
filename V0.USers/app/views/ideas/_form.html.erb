@@ -31,6 +31,13 @@
             <br>
 
             <div class="field">
+              <h3> <%= f.label "Label" %><small> - Choose a label helps us to give faster answers</small></h3>
+              <%= f.select(:label_id, options_for_select(Label.kind(:subject,true)))%>
+            </div>
+
+            <br>
+
+            <div class="field">
               <h2><%= f.label "Description" %></h2>
               <%= f.cktext_area(:content, cols: 60, rows: 10) %>
             </div>

@@ -1,13 +1,22 @@
 class Label < ApplicationRecord
-    validates :name, :presence => true
+    validates :name, :presence => true, uniqueness: true
     validates :category, :presence => true
     has_many :contact
     has_many :idea
     has_many :article
 
-    def self.kind type
+    def self.kind(type, for_select = false)
         if self.categories.include?(type)
-            return self.where(category: type)
+            if for_select
+                labels = []
+                self.where(category: type).each do |label|
+                    obj = [label.name.capitalize, label.id]
+                    labels.push(obj)
+                end
+                return labels
+            else
+                return self.where(category: type)
+            end
         end
     end
 
@@ -36,6 +45,10 @@ class Label < ApplicationRecord
         rescue
             return nil
         end
+    end
+
+    def self.kind_category category
+        return self.where(category: category) if self.categories.include?(category)
     end
 
 

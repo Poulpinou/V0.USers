@@ -20,8 +20,8 @@
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <% Contact.labels_kind.each do |label|%>
-                <li> <%= link_to "#{label.capitalize}", sort_contacts_path(label) %></li>
+              <% Label.kind_category(:contact).each do |label| %>
+                <li> <%= link_to "#{label.name.capitalize}", sort_contacts_path(label.id) %></li>
               <% end %>
             </ul>
           </div>

@@ -35,7 +35,7 @@ class ContactsController < ApplicationController
       @contacts = @contacts.where("state = 'fav'")
     else
       #filters label section
-      @contacts = @contacts.where("aim = '#{cookies[:sort_contacts]}'")
+      @contacts = Contact.where(label_id: cookies[:sort_contacts])
     end
   end
 
@@ -65,7 +65,7 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
-        format.html { redirect_to session[:previous_request_url], notice: 'Contact was successfully created.' }
+        format.html { redirect_to session[:previous_request_url], notice: 'Mail successfully sent.' }
         format.json { render :show, status: :created, location: @contact }
       else
         format.html { render :new }
@@ -106,6 +106,6 @@ class ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.fetch(:contact, {}).permit(:object, :content, :aim)
+      params.fetch(:contact, {}).permit(:object, :content, :label_id)
     end
 end

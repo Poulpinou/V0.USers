@@ -13,7 +13,7 @@
 
   <div class="field">
     <h3> <%= f.label "Label : " %>
-    <%= f.select(:label, Article.labels_kind)%></h3>
+    <%= f.select(:label_id, options_for_select(Label.kind(:article,true)))%></h3>
   </div>
 
 

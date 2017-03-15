@@ -11,9 +11,32 @@
     </div>
   <% end %>
 
+  <div class="row">
+    <div class="col-sm-6">
+
+      <div class="field">
+        <h2> <%= f.label "Name" %></h2>
+        <%= f.text_field :name, maxlength: 32 %>
+      </div>
+
+      <div class="field">
+        <h2> <%= f.label "Details" %></h2>
+        <%= f.text_area :details, maxlength: 100 %>
+      </div>
+
+      <div class="col-sm-6">
+          <%= f.text_field :color, as: :minicolors %>
+      </div>
+
+    </div>
+  </div>
 
 
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+   $('#label_color').minicolors;
+</script>

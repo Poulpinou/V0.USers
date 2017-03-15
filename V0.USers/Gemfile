@@ -47,6 +47,9 @@ gem "font-awesome-rails"
 # Bake seed with $ rake db:seed:dump
 gem 'seed_dump'
 
+# Color picker
+gem 'jquery-minicolors-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

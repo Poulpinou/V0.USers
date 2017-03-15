@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314182925) do
+ActiveRecord::Schema.define(version: 20170314233619) do
 
   create_table "articles", force: :cascade do |t|
     t.integer  "game_id"
@@ -51,9 +51,8 @@ ActiveRecord::Schema.define(version: 20170314182925) do
     t.string   "object"
     t.text     "content"
     t.string   "state",      default: "new"
-    t.string   "aim",        default: "contact"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "label_id"
     t.index ["label_id"], name: "index_contacts_on_label_id"
   end
@@ -91,6 +90,7 @@ ActiveRecord::Schema.define(version: 20170314182925) do
     t.string   "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "color"
   end
 
   create_table "notifs", force: :cascade do |t|

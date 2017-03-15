@@ -41,7 +41,12 @@ class Label < ApplicationRecord
     def self.draw object
         begin
             label = self.find(object.label_id)
-            return "<div class='label-#{label.name}'>#{label.name.capitalize}</div>".html_safe
+            if ["",:subject].include?(label.name) #Add exceptions categories to array to display them blank
+                css = "blank"
+            else
+                css = label.name
+            end
+            return "<div class='label-#{css}'>#{label.name.capitalize}</div>".html_safe
         rescue
             return nil
         end

@@ -1,6 +1,7 @@
 class Label < ApplicationRecord
     validates :name, :presence => true, uniqueness: true
     validates :category, :presence => true
+    validates :color, :presence => true
     has_many :contact
     has_many :idea
     has_many :article
@@ -41,12 +42,7 @@ class Label < ApplicationRecord
     def self.draw object
         begin
             label = self.find(object.label_id)
-            if ["",:subject].include?(label.name) #Add exceptions categories to array to display them blank
-                css = "blank"
-            else
-                css = label.name
-            end
-            return "<div class='label-#{css}'>#{label.name.capitalize}</div>".html_safe
+            return "<div style='background-color:#{label.color};padding: 4px;border: 1px solid lightgrey;color: black;width: 80px;height: 30px;text-align: center;border-radius: 7px;'>#{label.name.capitalize}</div>".html_safe
         rescue
             return nil
         end

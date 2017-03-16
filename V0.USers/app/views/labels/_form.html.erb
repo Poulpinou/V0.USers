@@ -16,7 +16,12 @@
 
       <div class="field">
         <h2> <%= f.label "Name" %></h2>
-        <%= f.text_field :name, maxlength: 32 %>
+        <%= f.text_field :name, maxlength: 9 %>
+      </div>
+
+      <div class="field">
+        <h2> <%= f.label "Category" %></h2>
+        <%= f.select(:category, options_for_select(Label.categories))%>
       </div>
 
       <div class="field">
@@ -24,11 +29,26 @@
         <%= f.text_area :details, maxlength: 100 %>
       </div>
 
-      <div class="col-sm-6">
-          <%= f.text_field :color, as: :minicolors %>
-      </div>
-
+      
     </div>
+
+    <div class="col-sm-6">
+      <h2>Color : <%= f.color_field(:color)%></h2>
+
+      <noscript>
+      This is where you could put a link for users who have JavaScript disabled to see a preview
+      </noscript>
+      <div id="preview"> This is how your advert will look
+        <div id="color">
+          <div id="Displayname"></div>
+        </div>
+      </div>
+      
+
+      <div class="clear"></div>
+    </div>
+
+    
   </div>
 
 
@@ -37,6 +57,4 @@
   </div>
 <% end %>
 
-<script type="text/javascript">
-   $('#label_color').minicolors;
-</script>
+

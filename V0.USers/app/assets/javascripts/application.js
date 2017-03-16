@@ -14,8 +14,28 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require ckeditor/init
-//= require jquery 
-//= require jquery.minicolors
+//= require bootstrap-colorpicker
+//= require_tree .
 
+
+$('.colorpicker').colorpicker('show');
+    $('.colorpicker').colorpicker().on('changeColor', function(ev){
+  bodyStyle.backgroundColor = ev.color.toHex();
+    });
+  
+  $(document).ready(function(){
+  $('#preview').hide();
+  $("#label_color").change(update);
+  $("#label_name").keypress(update);
+  });
+
+  function update(){
+
+  $('#preview').slideDown('slow');
+  var name = $("#label_name").val();
+  var color = $("#label_color").val();
+  $('#Displayname').html(name);
+  document.getElementById('color').style='background-color:'+color+';padding: 4px;border: 1px solid lightgrey;color: black;width: 80px;height: 30px;text-align: center;border-radius: 7px;';
+  /*$('#color').html(color);*/
+  }

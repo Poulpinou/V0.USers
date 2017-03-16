@@ -24,7 +24,7 @@ class LabelsController < ApplicationController
 
     respond_to do |format|
       if @label.save
-        format.html { redirect_to @label, notice: 'Label was successfully created.' }
+        format.html { redirect_to labels_path, notice: 'Label was successfully created.' }
         format.json { render :show, status: :created, location: @label }
       else
         format.html { render :new }
@@ -38,7 +38,7 @@ class LabelsController < ApplicationController
   def update
     respond_to do |format|
       if @label.update(label_params)
-        format.html { redirect_to @label, notice: 'Label was successfully updated.' }
+        format.html { redirect_to labels_path, notice: 'Label was successfully updated.' }
         format.json { render :show, status: :ok, location: @label }
       else
         format.html { render :edit }

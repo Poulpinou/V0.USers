@@ -1,3 +1,15 @@
-<div class="label" style="background-color:<%= @label.color %>">
-    <h3><%= label.name %></h3>
+<div class="labels">
+    <div style='background-color:<%=label.color%>;padding: 4px;border: 1px solid lightgrey;color: black;width: 80px;height: 30px;text-align: center;border-radius: 7px;'>
+        <div>
+            <div type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%=label.name.capitalize%>
+            </div>
+            <ul class="dropdown-menu">
+                <li>&nbsp&nbsp&nbsp<%=label.name.capitalize%></li>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to 'Update', edit_label_path(label.id) %></li>
+                <li><%= link_to("Delete", label, method: :delete, data: { confirm: 'Are you sure?' })%></li>
+            </ul>
+        </div>
+    </div>
 </div>

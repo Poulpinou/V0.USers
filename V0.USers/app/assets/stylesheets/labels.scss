@@ -1,97 +1,15 @@
-
-.label:after{
-    content: attr(color);
-    padding: 4px;
-    border: 1px solid lightgrey;
-    color: black;
-    width: 80px;
-    height: 30px;
-    text-align: center;
-    border-radius: 7px;
-    background-color: attr(color);
+.labels{
+    margin: 3px;
 }
 
-.label-new {
-    padding: 4px;
-    background-color: lightgreen;
-    border: 1px solid lightgrey;
-    color: white;
-    width: 80px;
-    height: 30px;
-    text-align: center;
-    border-radius: 7px;
-}
+/*.labels:nth-child(5):after { 
+     content: "<br>";
+     white-space: pre; 
+}*/
 
-.label-update {
-    padding: 4px;
-    background-color: lightblue;
-    border: 1px solid lightgrey;
-    color: white;
-    width: 80px;
-    height: 30px;
-    text-align: center;
-    border-radius: 7px;
-}
-
-.label-global {
-    padding: 4px;
-    background-color: dodgerblue;
-    border: 1px solid lightgrey;
-    color: white;
-    width: 80px;
-    height: 30px;
-    text-align: center;
-    border-radius: 7px;
-}
-
-.label-survey {
-    padding: 4px;
-    background-color: indianred;
-    border: 1px solid lightgrey;
-    color: white;
-    width: 80px;
-    height: 30px;
-    text-align: center;
-    border-radius: 7px;
-}
-
-.label-bug {
-    padding: 4px;
-    background-color: indianred;
-    border: 1px solid black;
-    color: white;
-    width: 80px;
-    height: 30px;
-    text-align: center;
-    border-radius: 7px;
-}
-.label-contact {
-    padding: 4px;
-    background-color: cornflowerblue;
-    border: 1px solid black;
-    color: white;
-    width: 80px;
-    height: 30px;
-    text-align: center;
-    border-radius: 7px;
-}
-.label-hire {
-    padding: 4px;
-    background-color: mediumseagreen;
-    border: 1px solid black;
-    color: white;
-    width: 80px;
-    height: 30px;
-    text-align: center;
-    border-radius: 7px;
-}
-.label-request {
-    padding: 4px;
-    background-color: mediumpurple;
-    border: 1px solid black;
-    color: white;
-    width: 80px;
-    height: 30px;
-    text-align: center;
-    border-radius: 7px;
+.labels-table{
+    margin: 10px;
+    background-color: lightgrey;
+    border-radius: 10px;
+    display: flex;
 }

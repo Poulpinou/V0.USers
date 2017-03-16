@@ -1,29 +1,46 @@
-<p id="notice"><%= notice %></p>
+<h1>Labels<small>- <%= link_to 'New Label', new_label_path %></small></h1>
 
-<h1>Labels</h1>
+<div class="container">
+  <div class="row">
+    
+    <h2>Subjects</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Create</th>
-      <th>Destroy</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="col-sm-6">
+      <div class="container">
+        <h3>Actual</h3>
+      </div>
+    </div>
 
-  <tbody>
-    <% @labels.each do |label| %>
-      <tr>
-        <td><%= label.create %></td>
-        <td><%= label.destroy %></td>
-        <td><%= link_to 'Show', label %></td>
-        <td><%= link_to 'Edit', edit_label_path(label) %></td>
-        <td><%= link_to 'Destroy', label, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="col-sm-6">
+      <div class="container">
+        <h3>Available</h3>
+      </div>
+    </div>
+  </div>
+</div>
 
-<br>
+<hr>
 
-<%= link_to 'New Label', new_label_path %>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-6">
+      <div class="container">
+        <h2>Messages</h2>
+        <div class="labels-table">
+          <%= render @labels.where(category: :contact)%>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="container">
+        <h2>Articles</h2>
+        <div class="labels-table">
+          <%= render @labels.where(category: :article)%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
